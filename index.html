@@ -1,22 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-        <link rel="stylesheet" href="style.css" />
-
-        <script src="libs/three.js"></script>
-        <script src="libs/physi.js"></script>
-        <script>
-            Physijs.scripts.worker = 'libs/physijs_worker.js';
-            // ammo.js is imported from the worker script, so the path is relative to
-            // physijs_worker.js
-            Physijs.scripts.ammo = 'ammo.js';
-        </script>
-
-        <script src="resources/Woodgod_Regular.js"></script>
-
-        <script src="game.js"></script>
-    </head>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
 <body>
-	
+	<div id="canvas-container"></div>
+
+        <div class="dialog" id="game-start-dialog">
+            <p>CONTROLS: Use the mouse to aim the cannon and shoot with the left mouse button.</p>
+
+            <p>Try to knock down all the targets using as few cannonballs as possible!</p>
+
+            <button class="dialog-confirm-button" id="start-game-button">Got it!</button>
+        </div>
+
+        <div class="dialog" id="level-finished-dialog">
+            <p>LEVEL FINISHED!</p>
+
+            <p>You knocked down <em id="num-targets"></em> targets using <em id="num-cannonballs"></em> cannonballs.</p>
+
+            <!-- TODO: show current high score for this level. -->
+            <p>Your best score for this level is <em id="best-num-cannonballs"></em> cannonballs.</p>
+
+            <button class="dialog-confirm-button" id="next-level-button">Next level!</button>
+        </div>
+
+        <div class="dialog" id="win-dialog">
+            <p>YOU WON!</p>
+
+            <p>In total, you knocked down <em id="total-targets"></em> targets using <em id="total-cannonballs"></em> cannonballs.</p>
+
+            <p>Your best total score is <em id="total-best-num-cannonballs"></em> cannonballs.</p>
+
+            <p>Now try to hit targets for as long as you want.</p>
+
+            <button class="dialog-confirm-button">Yay!</button>
+        </div>
 </body>
 </html>
