@@ -626,4 +626,24 @@ function removeUnderwaterObjects() {
     });
 }
 
+function render()
+{
+    updateCannon();
+
+    updateOcean();
+
+    updateSplashes();
+
+    removeUnderwaterObjects();
+
+    // Make level banner text fade out after level starts.
+    textMaterial.opacity = 2 - secondsSince(levelStartTime);
+
+    if (gameStarted) {
+        checkForWinCondition();
+    }
+
+    requestAnimationFrame(render);
+    renderer.render(scene, camera);
+}
 
